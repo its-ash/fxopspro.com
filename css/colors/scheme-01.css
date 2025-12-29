@@ -1,0 +1,6 @@
+:root {
+  --primary-color: oklch(67.507% 0.15198 19.996);
+  --primary-color-rgb: 118, 77, 240;
+  --secondary-color: #e27396;
+  --secondary-color-rgb: 68, 36, 144;
+}
