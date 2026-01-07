@@ -367,7 +367,85 @@
                     <p class="wow fadeInUp" data-wow-delay=".4s">
                       Schedule a free consultation with our experts to discuss your vision, explore regulatory options, and receive a customized implementation roadmap tailored to your business goals.
                     </p>
-                    <a class="btn-main fx-slide wow fadeInUp" data-wow-delay=".6s" href="#"><span>Schedule Free Consultation</span></a>
+                    <div class="row justify-content-center wow fadeInUp" data-wow-delay=".6s">
+                        <div class="col-lg-8">
+                            <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="p-4 rounded-1" style="background: rgba(255,255,255,0.05);">
+                                <input type="hidden" name="access_key" value="01fcc05c-395e-4505-955a-c2851a7ddf8b">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <input type="text" name="name" class="form-control" placeholder="Your Name" required style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="field-set">
+                                            <input type="email" name="email" class="form-control" placeholder="Your Email" required style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="field-set">
+                                            <input type="tel" name="mobile" class="form-control" placeholder="Your Mobile Number" required style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="field-set">
+                                            <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required style="background: rgba(255,255,255,0.1); border: none; color: #fff; padding: 15px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div id="result" class="text-white mb-3"></div>
+                                        <button type="submit" class="btn-main fx-slide w-100"><span>Submit Consultation Request</span></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <script>
+                            const form = document.getElementById('contactForm');
+                            const result = document.getElementById('result');
+
+                            form.addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                const formData = new FormData(form);
+                                const object = Object.fromEntries(formData);
+                                const json = JSON.stringify(object);
+                                result.innerHTML = "Please wait...";
+
+                                fetch('https://api.web3forms.com/submit', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: json
+                                })
+                                .then(async (response) => {
+                                    let json = await response.json();
+                                    if (response.status == 200) {
+                                        result.innerHTML = json.message;
+                                        result.classList.remove('text-danger');
+                                        result.classList.add('text-success');
+                                    } else {
+                                        console.log(response);
+                                        result.innerHTML = json.message;
+                                        result.classList.remove('text-success');
+                                        result.classList.add('text-danger');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                    result.innerHTML = "Something went wrong!";
+                                    result.classList.remove('text-success');
+                                    result.classList.add('text-danger');
+                                })
+                                .then(function() {
+                                    form.reset();
+                                    setTimeout(() => {
+                                        result.style.display = "none";
+                                    }, 5000);
+                                });
+                            });
+                            </script>
+                        </div>
+                    </div>
                 </div>
             </div>
 
