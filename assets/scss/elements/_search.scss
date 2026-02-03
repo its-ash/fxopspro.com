@@ -1,0 +1,131 @@
+// Icon
+.header__search-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    border-radius: 40px;
+    background-color: var(--color-contrast-lower);
+    transition: transform .3s cubic-bezier(.645,.045,.355,1), filter .5s cubic-bezier(.23,1,.32,1), background-color .6s cubic-bezier(.23,1,.32,1);
+
+    svg {
+        width: 20px;
+        path {
+            stroke: var(--color-contrast-high);
+            will-change: stroke;
+            transition: stroke .3s cubic-bezier(.23,1,.32,1);;
+        }
+    }
+
+    &:hover {
+        filter: contrast(0.9);
+    }
+}
+
+// Modal
+.header__search-modal {
+    --modal-transition-duration: .3s;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity var(--modal-transition-duration), visibility 0s var(--modal-transition-duration), backdrop-filter var(--modal-transition-duration), background-color var(--modal-transition-duration);
+
+    .header__search--close-btn {
+        width: 45px;
+        height: 45px;
+        position: fixed;
+        top: 30px;
+        right: 50px;
+        z-index: 10;
+        background-color: hsla(var(--color-black-h),var(--color-black-s),var(--color-black-l),0.9);
+        border: none;
+        border-radius: 50%;
+
+        svg g {
+            stroke: var(--color-white);
+        }
+    }
+    
+    .header__search--inner {
+        height: 60px;
+        max-width: 48rem;
+        width: 100%;
+        position: relative;
+        z-index: 11;
+        margin: 0 15px;
+
+        .search-field {
+            width: 100%;
+            position: relative;
+            font-size: var(--text-md);
+            height: 50px;
+            background-color: var(--color-contrast-lower);
+            border-radius: 40px;
+            padding-left: calc(50px + 4pt);
+            padding-right: 20px;
+            border: 1px solid transparent;
+            transition: border-color .3s cubic-bezier(.23,1,.32,1), box-shadow .3s cubic-bezier(.23,1,.32,1);
+
+            &:focus-visible {
+                outline: none;
+                box-shadow: 0px 0px 4px 0px var(--color-primary);
+                border-color: var(--color-primary);
+            }
+            &:hover {
+                border-color: var(--color-primary);
+            }
+        }
+        .ms-sb--icon {
+            position: absolute;
+            z-index: 1;
+        }
+        .ms-search--btn {
+            position: absolute;
+            top: 0;
+            left: 4pt;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            .search-submit {
+                height: 50px;
+                z-index: 2;
+                background: transparent;
+                width: 50px;
+                font-size: 0px;
+                border: none;
+                border-radius: 40px;
+            }
+            &::after {
+                width: 28px;
+                height: 28px;
+            }
+        }
+    }
+}
+
+.header__search-modal.modal--is-visible{
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: saturate(180%) blur(10px);
+    background-color: hsla(var(--color-contrast-low-h), var(--color-contrast-low-s), var(--color-contrast-low-l), .9);
+    transition: opacity .3s, visibility 0s, backdrop-filter .3s;
+}

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'neue montreal';
+    font-style: normal;
+    font-weight: 400;
+    src: url('ppneuemontreal-book.woff') format("woff");
+}
+@font-face {
+    font-family: 'neue montreal';
+    font-style: italic;
+    font-weight: 400;
+    src: url('ppneuemontreal-italic.woff') format("woff");
+}
+@font-face {
+    font-family: 'neue montreal';
+    font-style: normal;
+    font-weight: 100;
+    src: url('ppneuemontreal-thin.woff') format("woff");
+}
+@font-face {
+    font-family: 'neue montreal';
+    font-style: normal;
+    font-weight: 500;
+    src: url('ppneuemontreal-medium.woff') format("woff");
+}
+@font-face {
+    font-family: 'neue montreal';
+    font-style: italic;
+    font-weight: 600;
+    src: url('ppneuemontreal-semibolditalic.woff') format("woff");
+}
+@font-face {
+    font-family: 'neue montreal';
+    font-style: normal;
+    font-weight: 700;
+    src: url('ppneuemontreal-bold.woff') format("woff");
+}

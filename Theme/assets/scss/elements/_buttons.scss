@@ -1,0 +1,492 @@
+:root {
+  --btn-font-size: 1em;
+  --btn-padding-x: var(--space-sm);
+  --btn-padding-y: var(--space-xxs);
+  --btn-radius: 0;
+}
+
+button:focus {
+  outline: none;
+}
+// Input Submit {
+input[type=submit]:not(.wpcf7-form-control) {
+  cursor: pointer;
+  border: none;
+  color: var(--color-white);
+  margin-left: 8px;
+  padding: 0 16pt;
+  border-radius: 40px;
+}
+.entry-content {
+  input.button,
+  input[type=submit]{
+    font-size: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 40px;
+    font-weight: 600;
+    color: var(--color-contrast-higher);
+    background-color: var(--color-primary);
+  }
+}
+
+input[type="submit"] {
+  font-size: 16px;
+  height: 45px;
+  border-radius: 6pt;
+}
+
+// var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+.btn,
+.wpcf7-btn,
+.post-footer a,
+.btn--comments,
+button[name="apply_coupon"],
+a.checkout-button,
+.price_slider_amount .button,
+.single_add_to_cart_button { // basic button style
+  font-weight: 600;
+  display: inline-flex;
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+  padding-top: var(--space-xxs);
+  padding-bottom: var(--space-xxs);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: var(--btn-radius);
+  font-size: 1rem;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-contrast-higher);
+  user-select: none;
+  outline: none;
+  height: 45px;
+  outline-color: transparent;
+  box-shadow: none;
+  will-change: transform;
+  backface-visibility: hidden;
+  overflow: hidden;
+    span:first-child {
+        position: relative;
+        z-index: 2;
+        font-weight: 600;
+        will-change: color;
+        transition: color .3s ease;
+    }
+
+    &:hover {
+        span:first-child {
+            animation: MoveScaleUpInitial .3s forwards, MoveScaleUpEnd .3s .2s forwards;
+            color: var(--color-contrast-lower);
+        }
+    }
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -4pt;
+    top: 0;
+    display: block;
+    width: calc(100% + 8pt);
+    height: 100%;
+    background: var(--color-contrast-higher);
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 100% 100% 0 0;
+    transition: transform 0s cubic-bezier(.1,0,.3,1), border-radius .5s cubic-bezier(.1,0,.3,1);
+    transform: translate3d(0,100%,0);
+  }
+  &::after {
+    height: 100%;
+    left: -4pt;
+    top: 0;
+    transform: translate3d(0,-105%,0);
+    transition: transform .4s cubic-bezier(.1,0,.3,1);
+    width: calc(100% + 8pt);
+    background: var(--color-contrast-higher);
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    border-radius: 0;
+    transform: translateZ(0) scaleX(1);
+    transition: transform .2s cubic-bezier(.1,0,.3,1), border-radius .5s cubic-bezier(.1,0,.3,1);
+  }
+  &:hover::after {
+    transform: translateZ(0);
+    transition-delay: .4s;
+    transition-duration: .05s;
+    transition-timing-function: linear;
+  }
+
+  .ms-btn__text {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+  }
+
+}
+
+.btn-default {
+  &:active {
+    transform: translateY(4px);
+  }
+}
+
+// Btn Gutenberg
+.wp-block-button {
+  margin-bottom: var(--global--spacing-vertical);
+}
+// themes
+.btn--primary { // main button
+  height: 45px;
+  position: relative;
+  background-color: var(--color-primary);
+  transition: background-color 250ms var(--ease-out), transform 150ms var(--ease-in-out), outline-color 250ms var(--ease-out);
+  @include fontSmooth;
+}
+
+.btn--subtle {
+  background: var(--color-contrast-lower);
+  color: var(--color-contrast-higher);
+  outline: none;
+}
+
+.btn--accent { // used to draw particular attention to the button (e.g. destructive actions)
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  @include fontSmooth;
+
+  &:hover, :focus, :active {
+    color: var(--color-white);
+    outline-color: var(--color-accent);
+  }
+
+}
+
+// feedback
+.btn--disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+// size
+.ms-btn__icon {
+    width: .8em;
+}
+.btn--sm {
+  font-size: 0.8em;
+  height: 32px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.btn--ba {
+  font-size: 1em;
+  height: 42px;
+}
+
+.btn--md {
+  font-size: 1.1em;
+  height: 45px; 
+}
+
+.btn--lg {
+    font-size: 1.4em;
+    height: 60px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.btn--full-width {
+  display: flex;
+  width: 100%;
+}
+
+// icons
+.btn .icon {
+  // icon inherits color of button label
+  color: inherit;
+  flex-shrink: 0;
+}
+
+// icons + text
+.btn--icon-text {
+  align-items: center;
+  
+  > *:nth-child(2) {
+    margin-left: var(--space-xs);
+  }
+}
+
+// btn with icon (only)
+.btn--icon {
+  padding: var(--space-xs);
+}
+
+/* -------------------------------- 
+
+File#: _1_btn-states
+Title: Buttons states
+Descr: Multi-state button elements
+
+-------------------------------- */
+.btn-load-more {
+    transition: background-color 1s cubic-bezier(.23,1,.32,1);
+
+    .text--no-items {
+        display: none;
+    }
+    .load-more-icon {
+        width: 45px;
+        height: 45px;
+        position: absolute !important;
+        left: 0;
+        top: 0;
+        transform: translateY(50%);
+        opacity: 0 !important;
+        animation: none;
+        transition: all 1s cubic-bezier(.23,1,.32,1);
+        svg {
+            stroke: var(--color-black);
+        }
+    }
+    span.load-more-text {
+        transition: margin-left .4s cubic-bezier(.23,1,.32,1), color 1s cubic-bezier(.23,1,.32,1);
+    }
+    &.loading {
+        .load-more-icon {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            opacity: 1 !important;
+            transform: translateY(0%) scale(1);
+            svg {
+                stroke: var(--color-black);
+            }
+        }
+        span.load-more-text {
+            margin-left: 1.75em;
+        }
+    }
+    &.no-works {
+        background-color: var(--color-contrast-lower);
+        color: var(--color-contrast-medium);
+    }
+}
+
+.wpcf7 > form input[type="submit"][disabled],
+.wpcf7 > form input[type="submit"][disabled]:hover,
+.wpcf7 > form input[type="submit"][disabled]:focus {
+    color: var(--color-white);
+    background-color: var(--color-contrast-medium) !important;
+    transition: all 250ms var(--ease-out);
+}
+
+// With Icon
+.ms-btn__icon {
+  z-index: 4;
+}
+.ms-btn__icon--left {
+  margin-right: 8pt;
+}
+.ms-btn__icon--right {
+  margin-left: 8pt;
+}
+.ms-btn__text,
+.ms-btn__icon {
+    color: var(--color-contrast-higher);
+    transition: color .3s ease, fill .3s ease;
+}
+.ms-btn__text:focus,
+.ms-btn__text:active,
+.ms-btn__icon:focus,
+.ms-btn__icon:active,
+.ms-btn__icon i:focus,
+.ms-btn__icon i:active {
+  box-shadow: none;
+  user-select: none;
+}
+
+// Link Icon
+.ms-sl {
+    display: inline-flex;
+    .ms-btn__icon.link {
+        display: flex;
+    } 
+}
+
+// Simple Elementor Text Link Effect
+.elementor-widget-text-editor .elementor-widget-container a {
+    color: var(--color-contrast-higher);
+    text-decoration-thickness: .1em;
+    text-decoration-color: var(--color-primary);
+    transition: text-decoration-thickness 300ms ease;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: var(--color-primary);
+      bottom: 0pt;
+      left: 0;
+      width: 100%;
+      height: 1pt;
+      z-index: -1;
+      transition: height .3s cubic-bezier(.23,1,.32,1);
+    }
+    &:hover::after {
+      height: 4pt;
+    }
+  }
+
+/*--------------------------------*/
+/* Mokko Effect
+/*--------------------------------*/
+
+
+// Mokko Load More Btn
+.btn-load-more {
+    font-size: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 40px;
+    font-weight: 600;
+    height: 45px;
+    overflow: hidden;
+    background-color: var(--color-primary);
+    color: var(--color-contrast-higher);
+
+    &:hover {
+        color: var(--color-contrast-lower);
+        span.load-more-text {
+            animation: MoveScaleUpInitial .3s forwards, MoveScaleUpEnd .3s .2s forwards;
+            color: var(--color-contrast-lower);
+        }
+    }
+}
+
+@keyframes loadrotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
+
+body[data-theme='dark'] {
+
+    .btn--comments,
+    .post-footer a,
+    .load-more-text,
+    .page-numbers.current,
+    .ms-sb-wc .price_slider_amount .button,
+    .ms-single-product__content .coupon .button,
+    .ms-woocommerce-cart-form-wrapper .coupon .button,
+    .ms-single-product__content .coupon+.button,
+    .woocommerce-checkout-review-order .button,
+    .ms-woocommerce-cart-form-wrapper .coupon+.button:not(:disabled),
+    .ms-single-product .ms-single-product__content .cart .single_add_to_cart_button {
+        color: var(--color-contrast-lower);
+    }
+
+    a.btn:not(.btn-default) {
+        .ms-btn__text {
+            color: var(--color-contrast-lower);
+        }
+        .ms-btn__icon svg {
+            fill: var(--color-contrast-lower);
+        }
+    }
+    
+    .back-to-top:hover .ms-btt-i {
+        fill: var(--color-contrast-lower);
+    }
+
+    .portfolio_wrap .portfolio-feed .load_filter {
+        background-color: var(--color-contrast-lower);
+    }
+
+    .ms-product .ms-product-link svg path {
+        stroke: var(--color-bg);
+    }
+
+    &.woocommerce-page .wc-forward {
+        color: var(--color-contrast-lower);
+    }
+
+    .ms-product-link a.added_to_cart {
+        background-color: var(--color-contrast-low);
+    }
+
+    // Header Widgets
+    &.woocommerce-cart {
+        .header__search-icon,
+        .ms_theme_mode,
+        .main-header__cart {
+            filter: contrast(.7);
+            &:hover {
+                filter: contrast(.9);
+            }
+        }
+    }
+
+    .ms-single-product .ms-single-product__media .woocommerce-product-gallery a.woocommerce-product-gallery__trigger::after {
+        filter: invert(1)
+    }
+}
+
+// Mokko Btn Animation
+
+.btn:hover .ms-btn__text,
+.btn:hover .ms-btn__icon {
+    animation: MoveScaleUpInitial .3s forwards, MoveScaleUpEnd .3s .2s forwards;
+    color: var(--color-contrast-lower);
+    fill: var(--color-contrast-lower);
+  }
+
+@keyframes MoveScaleUpInitial {
+    to {
+        opacity: 0;
+        transform: translate3d(0,-105%,0) scaleY(2);
+    }
+}
+
+@keyframes MoveScaleUpEnd {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,100%,0) scaleY(2);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+
+    .btn-load-more {
+        &:hover span:last-child:not(.load-more-icon) {
+            color: var(--color-contrast-higher) !important;
+        }
+        &::before, &::after {
+            content: none;
+        }
+    }
+}

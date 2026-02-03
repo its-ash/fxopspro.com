@@ -1,0 +1,39 @@
+.container {
+    max-width: var(--responsive--alignwide-width);
+}
+
+.grid-sizer {
+    display: none;
+}
+.container {
+    max-width: 1350px;
+    padding-left: calc(var(--bs-gutter-x)/ 1.6);
+    padding-right: calc(var(--bs-gutter-x)/ 1.6);
+    .row {
+        margin-left: calc(var(--bs-gutter-x)/ -1.6);
+        margin-right: calc(var(--bs-gutter-x)/ -1.6);
+        &>* {
+            padding-left: calc(var(--bs-gutter-x)/ 1.6);
+            padding-right: calc(var(--bs-gutter-x)/ 1.6);
+        }
+    }
+}
+
+.grid-sizer {
+    display: none;
+}
+// Disable transition Container if parallax
+[data-scroll].e-con {
+    transition: transform 0s;
+}
+
+@media only screen and (max-width: 975px) {
+    .container {
+        padding-right: calc(var(--bs-gutter-x) / 1.6);
+        padding-left: calc(var(--bs-gutter-x) / 1.6);
+    }
+    .container,
+    .ms-sp--title {
+        max-width: 100% !important;
+    }
+}

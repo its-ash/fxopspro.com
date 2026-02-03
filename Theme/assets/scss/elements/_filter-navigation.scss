@@ -1,0 +1,256 @@
+// --expanded version
+.filter-nav--expanded {
+  .filter-nav__nav {
+    display: flex;
+  }
+
+  .filter-nav__list {
+    font-size: 18px;
+    display: inline-flex;
+    position: relative;
+    list-style: none;
+    padding-left: 0;
+    height: 45px;
+    align-items: center;
+    background-color: var(--color-contrast-lower);
+    border-radius: 45px;
+    transition: background-color .6s cubic-bezier(.23,1,.32,1);
+  }
+
+  .filter-nav__item {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    border-radius: 45px;
+    margin: 0 0.5pt;
+  }
+
+  .filter-nav__btn { // <button> element inside each list item
+    outline: none;
+    color: var(--color-contrast-higher);
+    cursor: pointer;
+    transition: color .3s var(--ease-in-out);
+    user-select: none;
+    font-size: 16px;
+    padding: 0 16pt;
+    height: 45px;
+    text-transform: lowercase;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        z-index: -1;
+        border-radius: var(--border-radius-medium);
+        background-color: var(--color-contrast-low);
+        opacity: 0;
+        transform: scale3d(.85,1,1);
+        border-radius: 45px;
+        transition: transform .3s cubic-bezier(.38,.005,.215,1), opacity .3s cubic-bezier(.38,.005,.215,1);
+    }
+    &:hover {
+      color: var(--color-contrast-higher);
+    }
+    &:hover::before {
+        opacity: 1;
+        transform: scaleZ(1);
+    }
+    &[aria-current="true"] {
+      color: var(--color-contrast-lower);
+      pointer-events: none;
+    }
+  }
+
+  .filter-nav__marker { // animated marker
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    pointer-events: none;
+    transition: transform .3s, width .3s;
+    transition-timing-function: var(--ease-in-out);
+    will-change: width, transform;
+
+    &::after {
+      content: '';
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      margin: 0 auto;
+      background-color: var(--color-contrast-higher);
+      border-radius: 45px;
+      transition: background-color .6s cubic-bezier(.23,1,.32,1);
+    }
+
+  }
+}
+
+.elementor-element-edit-mode .filter-nav__marker {
+  top: 0px;
+  width: 0px;  
+}
+
+// --collapsed version - available horizontal space not enough to contain all list items
+.filter-nav--collapsed {
+    font-weight: 500;
+  .filter-nav__wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 1;
+  }
+
+  .filter-nav__nav {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-md);
+    // max-height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+  }
+
+  .filter-nav__wrapper--is-visible {
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity .3s;
+
+    .filter-nav__nav {
+      transition: opacity .3s, transform .3s;
+      opacity: 1;
+      background-color: var(--color-contrast-lower);
+      border-radius: 24pt;
+    }
+  }
+
+  .filter-nav__list {
+    order: 2;
+    flex-direction: column;
+    overflow: auto;
+    padding: var(--space-xs) 0 var(--space-xs);
+    list-style: none;
+    border-top: solid 3px var(--color-bg);
+
+  }
+
+  .filter-nav__btn {
+    display: block; // fallback
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--color-contrast-higher);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-contrast-higher);
+    }
+
+    &[aria-current="true"] {
+      color: var(--color-primary);
+    }
+
+    &::before { // check icon next to the selected button
+      content: '';
+      display: block;
+      height: .35em;
+      width: .35em;
+      border-radius: 50%;
+      margin-right: var(--space-xxxs);
+      background-color: transparent;
+    }
+
+    &[aria-current="true"]::before {
+      background-color: var(--color-primary); // icon color
+    //   -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNic+PHBvbHlsaW5lIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2U9JyMwMDAwMDAnIGZpbGw9J25vbmUnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgcG9pbnRzPScxLDkgNSwxMyAxNSwzICcvPjwvc3ZnPg==);
+            //   mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNic+PHBvbHlsaW5lIHN0cm9rZS13aWR0aD0nMS41JyBzdHJva2U9JyMwMDAwMDAnIGZpbGw9J25vbmUnIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgcG9pbnRzPScxLDkgNSwxMyAxNSwzICcvPjwvc3ZnPg==);
+      }
+
+
+  }
+
+  .filter-nav__marker { // hide animated marker
+    display: none !important;
+  }
+
+  .filter-nav__close-btn { // X button
+    display: flex;
+    order: 1;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    margin: 0 var(--space-sm) 0 auto;
+    width: 2em;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: .2s;
+    
+    .icon {
+      display: block;
+      color: var(--color-contrast-high);
+    }
+  }
+
+  .filter-nav__item.subnav__link {
+    padding: 0 4pt;
+  }
+  .filter-nav__item.subnav__link:first-child .filter-nav__btn {
+    padding-top: var(--space-xs);
+  }
+
+}
+
+// no js
+html:not(.js) .filter-nav__nav {
+  justify-content: left;
+}
+
+.btn--subtle.js-filter-nav__control {
+  z-index: 3;
+  height: 45px;
+  border-radius: 24pt;
+  position: relative;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.reset.filter-nav__btn.js-tab-focus {
+  outline: none !important;
+}
+.reset.btn:hover {
+    outline-color: transparent;
+}
+.reset.btn:focus {
+    box-shadow: none;
+}
+.reset.filter-nav__close-btn:focus {
+   outline: none;
+}
+
+// Elementor Edit mod
+.elementor-edit-mode {
+    .filter-nav__item.subnav__link.active {
+        .filter-nav__btn {
+            border-radius: 45px;
+            background-color: var(--color-contrast-higher);
+        }
+    }
+}

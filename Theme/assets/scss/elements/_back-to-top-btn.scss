@@ -1,0 +1,110 @@
+.back-to-top {
+  position: fixed;
+  height: 45px;
+  right: 50px;
+  bottom: 30px;
+  z-index: 2;
+  display: flex;
+  transform: translateY(calc(100% + 50px));
+  display: flex;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(.6, 0, .1, 1);
+
+  &.active {
+    transform: translateY(0);
+  }
+
+  .ms-btt--text {
+    font-size: 18px;
+    color: var(--color-contrast-higher);
+    margin-right: 0pt;
+    transition: margin-right .2s cubic-bezier(0.4, 0, 0, 1);
+
+  }
+  .ms-btt--inner {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    overflow: hidden;
+    will-change: width;
+    height: 45px;
+    width: 45px;
+    position: relative;
+
+    &:active {
+      transform: translateY(2px);
+    }
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-primary);
+        position: absolute;
+        top: 0;
+        left: 0%;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 40px;
+        opacity: 1;
+        transform: scale(0);
+        transition: all .3s cubic-bezier(0.4, 0, 0, 1),
+    }
+
+  }
+
+  .ms-btt-i {
+    z-index: 1;
+    width: 24px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    stroke: transparent;
+    fill: var(--color-contrast-higher);
+    transform: translateZ(0);
+    position: relative;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0, 1), width .1s;
+  }
+
+  &:hover {
+    .ms-btt-i {
+        width: 24px;
+    }
+    .ms-btt--text {
+        margin-right: 14pt;
+    }
+    .ms-btt--inner {
+        width: 45px;
+        &::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .ms-btt-i {
+        animation: MoveScaleUpInitial .3s forwards, MoveScaleUpEnd .3s .2s forwards;
+    }
+  }
+
+}
+
+:root, [data-theme="dark"] {
+  .back-to-top {
+    mix-blend-mode: normal;
+  }
+}
+
+@media (max-width: 1023px) {
+  .back-to-top {
+    right: 15px;
+    bottom: 15px;
+    .ms-btt--text {
+        display: none;
+    }
+    .ms-btt--inner {
+        background-color: var(--color-primary);
+        border-radius: 40px;
+    }
+  }
+}
