@@ -1,5 +1,15 @@
 <!--================= Header One Start =================-->
 <!--================= Sticky Menu Start Here =================-->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+
+<style>
+        [data-theme="light"] .dark-logo {
+                filter: invert(1);
+        }
+</style>
+
+
+
 <div id="top" class="home"></div>
 <div class="main-header js-main-header auto-hide-headermain-header js-main-header auto-hide-header ms-nb--transparent ms-nb--white menu-right"
         id="ms-header">
@@ -8,13 +18,13 @@
                         <div class="main-header__logo">
                                 <div class="logo-dark">
                                         <a href="index.html">
-                                                <img src="assets/images/logo/logo-light.svg"
+                                                <img src="assets/logo.png" class="dark-logo"
                                                         alt="Mokko – Creative Portfolio &amp; Agency HTML Template">
                                         </a>
                                 </div>
                                 <div class="logo-light">
                                         <a href="index.html">
-                                                <img src="assets/images/logo/logo-dark.svg"
+                                                <img src="assets/logo.png" class="dark-logo"
                                                         alt="Mokko – Creative Portfolio &amp; Agency HTML Template">
                                         </a>
                                 </div>
@@ -60,42 +70,8 @@
                                                         </div>
                                                 </div>
                                         </div>
-                                        <div class="header__search-icon ms-h_w">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                                                                stroke="#4F5663" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                        </path>
-                                                        <path d="M21 21L16.65 16.65" stroke="#4F5663" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                        </div>
-                                        <div class="header__search-modal data-scroll-section">
-                                                <button class="header__search--close-btn">
-                                                        <svg class="icon icon--sm" viewBox="0 0 24 24">
-                                                                <title>Close modal window</title>
-                                                                <g fill="none" stroke="currentColor"
-                                                                        stroke-miterlimit="10" stroke-width="2"
-                                                                        stroke-linecap="round" stroke-linejoin="round">
-                                                                        <line x1="3" y1="3" x2="21" y2="21"></line>
-                                                                        <line x1="21" y1="3" x2="3" y2="21"></line>
-                                                                </g>
-                                                        </svg>
-                                                </button>
-                                                <div class="header__search--inner">
-                                                        <form role="search" method="get" class="searchform" action="#">
-                                                                <div class="ms-search-widget">
-                                                                        <input type="search" placeholder="Search..."
-                                                                                value="" name="s" class="search-field"
-                                                                                required>
-                                                                        <button aria-label="Search"
-                                                                                class="ms-search--btn"
-                                                                                type="submit"></button>
-                                                                </div>
-                                                        </form>
-                                                </div>
-                                        </div>
+
+
                                 </div>
 
                                 <div class="container-menu ms-h_w">
@@ -149,9 +125,10 @@
                                                                         </ul>
                                                                 </li>
                                                                 <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-588">
+                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-588">
+                                                                        <!-- menu-item-has-children -->
                                                                         <a href="#">Work</a>
-                                                                        <ul class="sub-menu">
+                                                                        <!-- <ul class="sub-menu">
                                                                                 <li
                                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-710">
                                                                                         <a href="project-style-1.html">Portfolio:
@@ -190,9 +167,10 @@
                                                                         </ul>
                                                                 </li>
                                                                 <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-84">
+                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
+                                                                        <!-- menu-item-has-children -->
                                                                         <a href="#">Stories</a>
-                                                                        <ul class="sub-menu">
+                                                                        <!-- <ul class="sub-menu">
                                                                                 <li
                                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-122">
                                                                                         <a href="blog-card.html">Blog
@@ -233,12 +211,13 @@
                                                                                                 Left
                                                                                                 Sidebar</a>
                                                                                 </li>
-                                                                        </ul>
+                                                                        </ul> -->
                                                                 </li>
                                                                 <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-752">
-                                                                        <a href="#">Shop</a>
-                                                                        <ul class="sub-menu">
+                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-752">
+                                                                        <!-- menu-item-has-children -->
+                                                                        <a href="solutions.html">solutions</a>
+                                                                        <!-- <ul class="sub-menu">
                                                                                 <li
                                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-756">
                                                                                         <a href="shop.html">Shop</a>
@@ -262,11 +241,12 @@
                                                                                         <a href="account.html">My
                                                                                                 account</a>
                                                                                 </li>
-                                                                        </ul>
+                                                                        </ul> -->
                                                                 </li>
                                                                 <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-317">
-                                                                        <a href="#">Contacts</a>
+                                                                        class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-317">
+                                                                        <!-- menu-item-has-children -->
+                                                                        <a href="contact.html">Contacts</a>
                                                                         <ul class="sub-menu">
                                                                                 <li
                                                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
@@ -304,3 +284,69 @@
 <!--================= Mobile Menu Start Here =================-->
 
 <!--================= Mobile Menu Start Here =================-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+        
+                                        <div class="header__search-icon ms-h_w">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                                                stroke="#4F5663" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round">
+                                                        </path>
+                                                        <path d="M21 21L16.65 16.65" stroke="#4F5663" stroke-width="1.5"
+                                                                stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                        </div>
+
+
+
+                                        <div class="header__search-modal data-scroll-section">
+                                                <button class="header__search--close-btn">
+                                                        <svg class="icon icon--sm" viewBox="0 0 24 24">
+                                                                <title>Close modal window</title>
+                                                                <g fill="none" stroke="currentColor"
+                                                                        stroke-miterlimit="10" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                                        <line x1="3" y1="3" x2="21" y2="21"></line>
+                                                                        <line x1="21" y1="3" x2="3" y2="21"></line>
+                                                                </g>
+                                                        </svg>
+                                                </button>
+                                                <div class="header__search--inner">
+                                                        <form role="search" method="get" class="searchform" action="#">
+                                                                <div class="ms-search-widget">
+                                                                        <input type="search" placeholder="Search..."
+                                                                                value="" name="s" class="search-field"
+                                                                                required>
+                                                                        <button aria-label="Search"
+                                                                                class="ms-search--btn"
+                                                                                type="submit"></button>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                        </div>
+
+
+
+
+
+-->
