@@ -12,7 +12,7 @@
 
   var THREE = window.THREE;
   var scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0x060b18, 18, 85);
+  scene.fog = new THREE.Fog(0x020306, 16, 82);
 
   var camera = new THREE.PerspectiveCamera(58, window.innerWidth / window.innerHeight, 0.1, 200);
   camera.position.set(0, 0, 20);
@@ -23,19 +23,20 @@
     alpha: true,
     powerPreference: 'high-performance'
   });
+  renderer.setClearColor(0x010204, 0.92);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   var isMobile = window.innerWidth < 768;
   var totalCount = isMobile ? 520 : 1080;
   var symbolSpecs = [
-    { symbol: '$', color: '#4b8fa5' },
-    { symbol: '€', color: '#5e82b2' },
-    { symbol: '₿', color: '#3f9f8b' },
-    { symbol: 'Ξ', color: '#6c67a5' }
+    { symbol: '$', color: '#5ec8ff' },
+    { symbol: '€', color: '#8ea6ff' },
+    { symbol: '₿', color: '#ffb347' },
+    { symbol: 'Ξ', color: '#8cf0c4' }
   ];
 
-  function createSymbolTexture(symbol, color) {
+  function createSymbolTexture(symbol) {
     var c = document.createElement('canvas');
     c.width = 128;
     c.height = 128;
@@ -46,9 +47,9 @@
     ctx.textBaseline = 'middle';
     ctx.font = '900 86px Arial, sans-serif';
 
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = color;
-    ctx.fillStyle = color;
+    ctx.shadowBlur = 14;
+    ctx.shadowColor = 'rgba(255,255,255,0.5)';
+    ctx.fillStyle = '#ffffff';
     ctx.fillText(symbol, 64, 66);
 
     var tex = new THREE.CanvasTexture(c);
@@ -87,14 +88,14 @@
     var geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    var texture = createSymbolTexture(spec.symbol, spec.color);
+    var texture = createSymbolTexture(spec.symbol);
     var material = new THREE.PointsMaterial({
       map: texture,
       alphaTest: 0.24,
       transparent: true,
-      color: 0xffffff,
+      color: spec.color,
       size: isMobile ? 0.58 : 0.72,
-      opacity: 0.62,
+      opacity: 0.72,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
       sizeAttenuation: true
