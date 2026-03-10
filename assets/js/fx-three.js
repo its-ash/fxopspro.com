@@ -28,13 +28,20 @@
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   var isMobile = window.innerWidth < 768;
-  var totalCount = isMobile ? 120 : 220;
+  var totalCount = isMobile ? 144 : 288;
   var symbolSpecs = [
     { symbol: '$', color: '#9ae6ff' },
     { symbol: '€', color: '#ccd3ff' },
     { symbol: '₿', color: '#ffd98a' },
-    { symbol: 'Ξ', color: '#c9ffe6' }
+    { symbol: 'Ξ', color: '#c9ffe6' },
+    { symbol: '£', color: '#ffb3e8' },
+    { symbol: '¥', color: '#fff0a8' },
+    { symbol: '₹', color: '#b8ffcc' },
+    { symbol: '₣', color: '#ffc8a1' }
   ];
+  var SYMBOL_WIDTH = isMobile ? 0.34 : 0.4;
+  var SYMBOL_HEIGHT = isMobile ? 0.34 : 0.4;
+  var SYMBOL_LENGTH = isMobile ? 0.082 : 0.1;
 
   var ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
   scene.add(ambientLight);
@@ -93,25 +100,31 @@
       spinSeed[i] = Math.random() * Math.PI * 2;
     }
 
-    var radius = isMobile ? 0.19 : 0.22;
-    var depth = isMobile ? 0.038 : 0.048;
-    var geometry = new THREE.CylinderGeometry(radius, radius, depth, 16, 1, false);
+    var geometry = new THREE.BoxGeometry(SYMBOL_WIDTH, SYMBOL_HEIGHT, SYMBOL_LENGTH);
     var texture = createSymbolTexture(spec.symbol);
-    var edgeMaterial = new THREE.MeshStandardMaterial({
-      color: 0x0f1728,
-      roughness: 0.44,
-      metalness: 0.55
+    var edgeMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0x2c3448,
+      roughness: 0.28,
+      metalness: 0.82,
+      clearcoat: 0.35,
+      clearcoatRoughness: 0.2
     });
-    var faceMaterial = new THREE.MeshStandardMaterial({
+    var faceMaterial = new THREE.MeshPhysicalMaterial({
       map: texture,
       color: new THREE.Color(spec.color),
       emissive: new THREE.Color(spec.color),
       emissiveIntensity: 0.5,
-      roughness: 0.3,
-      metalness: 0.62,
+      roughness: 0.22,
+      metalness: 0.7,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.12,
       transparent: true
     });
-    var mesh = new THREE.InstancedMesh(geometry, [edgeMaterial, faceMaterial, faceMaterial], count);
+    var mesh = new THREE.InstancedMesh(
+      geometry,
+      [edgeMaterial, edgeMaterial, edgeMaterial, edgeMaterial, faceMaterial, faceMaterial],
+      count
+    );
     mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
 
     var dummy = new THREE.Object3D();
