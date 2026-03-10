@@ -23346,3 +23346,35 @@ body[data-theme=dark] {
   background: transparent !important;
   background-color: transparent !important;
 }
+
+/* Auto Currency Cursor */
+.fx-currency-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+  transform: translate3d(-100px, -100px, 0);
+  color: #ffd84d;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 79, 216, 0.45), 0 0 16px rgba(255, 216, 77, 0.5);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.fx-currency-cursor-on,
+  body.fx-currency-cursor-on a,
+  body.fx-currency-cursor-on button,
+  body.fx-currency-cursor-on [role="button"],
+  body.fx-currency-cursor-on .btn,
+  body.fx-currency-cursor-on input,
+  body.fx-currency-cursor-on textarea,
+  body.fx-currency-cursor-on select,
+  body.fx-currency-cursor-on label {
+    cursor: none !important;
+  }
+}

@@ -22,6 +22,7 @@
     ms_search_widget();
     ms_header_menu();
     ms_menu_default_mobile();
+    ms_currency_cursor_auto();
     
      // Swiper Slider Options
      function swiperActivation($scope){
@@ -262,6 +263,72 @@
     console.error('jQuery is required but not found.');
 }
 
+    }
+
+    // Random Currency Symbol Cursor
+    function ms_currency_cursor_auto() {
+      if (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+      if ($('.cursor-custom').length > 0) return;
+
+      var symbols = ['$', '€', '₿', 'Ξ', '£', '¥', '₹', '₣'];
+      var cursor = document.querySelector('.fx-currency-cursor');
+      if (!cursor) {
+        cursor = document.createElement('div');
+        cursor.className = 'fx-currency-cursor';
+        cursor.setAttribute('aria-hidden', 'true');
+        cursor.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        document.body.appendChild(cursor);
+      }
+
+      document.body.classList.add('fx-currency-cursor-on');
+
+      var px = window.innerWidth / 2;
+      var py = window.innerHeight / 2;
+      var tx = px;
+      var ty = py;
+      var raf = null;
+      var active = true;
+
+      function randomSymbol() {
+        cursor.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      }
+
+      function onMove(e) {
+        tx = e.clientX;
+        ty = e.clientY;
+        cursor.style.opacity = '1';
+      }
+
+      function animate() {
+        if (!active) return;
+        px += (tx - px) * 0.2;
+        py += (ty - py) * 0.2;
+        cursor.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0)';
+        raf = requestAnimationFrame(animate);
+      }
+
+      function onLeave() {
+        cursor.style.opacity = '0';
+      }
+
+      function onEnter() {
+        cursor.style.opacity = '1';
+      }
+
+      var ticker = setInterval(randomSymbol, 700);
+      window.addEventListener('mousemove', onMove, { passive: true });
+      document.addEventListener('mouseleave', onLeave);
+      document.addEventListener('mouseenter', onEnter);
+      animate();
+
+      window.addEventListener('beforeunload', function () {
+        active = false;
+        if (raf) cancelAnimationFrame(raf);
+        clearInterval(ticker);
+        window.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseleave', onLeave);
+        document.removeEventListener('mouseenter', onEnter);
+      });
     }
     function titleOpacityWrap() {
 
