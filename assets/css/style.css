@@ -23332,3 +23332,17 @@ body[data-theme=dark] .ms-pt-block:hover {
     text-align: center;
   }
 }
+
+/* Global Black Background */
+html,
+body,
+body[data-theme=dark] {
+  background: #000000 !important;
+  background-color: #000000 !important;
+}
+
+.ms-main,
+.ms-page-content {
+  background: transparent !important;
+  background-color: transparent !important;
+}
