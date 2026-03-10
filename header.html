@@ -1,367 +1,72 @@
 <!--================= Header One Start =================-->
-<!--================= Sticky Menu Start Here =================-->
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 
-<style>
-        [data-theme="light"] .dark-logo {
-                filter: invert(1);
-        }
-</style>
-
-
-
 <div id="top" class="home"></div>
-<div class="main-header js-main-header auto-hide-headermain-header js-main-header auto-hide-header ms-nb--transparent ms-nb--white menu-right"
-        id="ms-header">
-        <div class="main-header__layout">
-                <div class="main-header__inner move">
-                        <div class="main-header__logo">
-                                <div class="logo-dark">
-                                        <a href="index.html">
-                                                <img src="assets/logo.png" class="dark-logo" style="width: 150px;"
-                                                        alt="Mokko – Creative Portfolio &amp; Agency HTML Template">
-                                        </a>
-                                </div>
-                                <div class="logo-light">
-                                        <a href="index.html">
-                                                <img src="assets/logo.png" class="dark-logo" style="width: 150px;"
-                                                        alt="Mokko – Creative Portfolio &amp; Agency HTML Template">
-                                        </a>
-                                </div>
-                        </div>
-                        <div class="main-header__widgets">
-                                <div class="main-header--widgets">
-                                        <div class="ms_theme_mode ms-h_w">
-                                                <div class="ms_tm--inner">
-                                                        <div class="theme-toggle" id="theme-toggle">
-                                                                <input type="checkbox" id="switcher" class="check"
-                                                                        checked="">
-                                                                <svg class="sun-and-moon" aria-hidden="true" width="24"
-                                                                        height="24" viewBox="0 0 24 24">
-                                                                        <mask class="moon" id="moon-mask">
-                                                                                <rect x="0" y="0" width="100%"
-                                                                                        height="100%" fill="white">
-                                                                                </rect>
-                                                                                <circle cx="24" cy="10" r="6"
-                                                                                        fill="black"></circle>
-                                                                        </mask>
-                                                                        <circle class="sun" cx="12" cy="12" r="6"
-                                                                                mask="url(#moon-mask)"
-                                                                                fill="currentColor"></circle>
-                                                                        <g class="sun-beams" stroke="currentColor">
-                                                                                <line x1="12" y1="1" x2="12" y2="3">
-                                                                                </line>
-                                                                                <line x1="12" y1="21" x2="12" y2="23">
-                                                                                </line>
-                                                                                <line x1="4.22" y1="4.22" x2="5.64"
-                                                                                        y2="5.64"></line>
-                                                                                <line x1="18.36" y1="18.36" x2="19.78"
-                                                                                        y2="19.78"></line>
-                                                                                <line x1="1" y1="12" x2="3" y2="12">
-                                                                                </line>
-                                                                                <line x1="21" y1="12" x2="23" y2="12">
-                                                                                </line>
-                                                                                <line x1="4.22" y1="19.78" x2="5.64"
-                                                                                        y2="18.36"></line>
-                                                                                <line x1="18.36" y1="5.64" x2="19.78"
-                                                                                        y2="4.22"></line>
-                                                                        </g>
-                                                                </svg>
-                                                        </div>
-                                                </div>
-                                        </div>
-
-
-                                </div>
-
-                                <div class="container-menu ms-h_w">
-                                        <div class="action-menu">
-                                                <div class="menu-text">
-                                                        <span>Menu</span>
-                                                </div>
-                                                <div class="menu-lines">
-                                                        <span class="menu-line"></span>
-                                                        <span class="menu-line"></span>
-                                                </div>
-                                        </div>
-                                </div>
-
-                                <div class="ms-menu-wrapper">
-                                        <div class="ms-menu">
-                                                <div class="ms-menu-container">
-                                                        <ul id="primary-menu-button" class="navbar-nav"
-                                                                style="width: 212.688px; height: 361.047px;">
-                                                                <li class="menu-title"><a>Menu</a></li>
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent  menu-item-14">
-                                                                        <!-- menu-item-has-children -->
-                                                                        <a href="index.html">Home</a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-817">
-                                                                                        <a href="index-two.html">Home
-                                                                                                Portfolio</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-909">
-                                                                                        <a href="index.html">Full Page
-                                                                                                Slider</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-928">
-                                                                                        <a href="index-three.html">Creative
-                                                                                                Agency</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1525 current_page_item menu-item-1527">
-                                                                                        <a href="index-four.html"
-                                                                                                aria-current="page">Business
-                                                                                                &amp; Corporate</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1944">
-                                                                                        <a href="index-five.html">Personal
-                                                                                                Page</a>
-                                                                                </li>
-                                                                        </ul> -->
-                                                                </li>
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-588">
-                                                                        <!-- menu-item-has-children -->
-                                                                        <a href="#">Work</a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-710">
-                                                                                        <a href="project-style-1.html">Portfolio:
-                                                                                                Style 1</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-726">
-                                                                                        <a href="project-style-2.html">Portfolio:
-                                                                                                Style 2</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-744">
-                                                                                        <a href="project-style-3.html">Portfolio:
-                                                                                                Style 3</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-594">
-                                                                                        <a href="project-grid-1.html">Portfolio:
-                                                                                                Grid 1</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-675">
-                                                                                        <a href="project-grid-2.html">Portfolio:
-                                                                                                Grid 2</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-689">
-                                                                                        <a href="project-masonry.html">Portfolio:
-                                                                                                Masonry</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-689">
-                                                                                        <a href="project-single.html">Portfolio:
-                                                                                                Single</a>
-                                                                                </li>
-                                                                        </ul>
-                                                                </li>
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84">
-                                                                        < menu-item-has-children -->
-                                                                        <!-- <a href="#">Stories</a> -->
-                                                                        <!-- <ul class="sub-menu">
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-122">
-                                                                                        <a href="blog-card.html">Blog
-                                                                                                Card</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128">
-                                                                                        <a href="blog-card-grid.html">Blog
-                                                                                                Card
-                                                                                                Grid</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158">
-                                                                                        <a href="blog-list.html">Blog
-                                                                                                List: Style
-                                                                                                1</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-184">
-                                                                                        <a href="blog-list-right.html">Blog
-                                                                                                List: Style 2</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-178">
-                                                                                        <a href="blog-list-random.html">Blog
-                                                                                                List: Style 3</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-85">
-                                                                                        <a
-                                                                                                href="blog-right-sidebar.html">Blog
-                                                                                                Right
-                                                                                                Sidebar</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-199">
-                                                                                        <a href="blog-left-sidebar/">Blog
-                                                                                                Left
-                                                                                                Sidebar</a>
-                                                                                </li>
-                                                                        </ul> -->
-                                                                        <!-- </li> -->
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-752">
-                                                                        <!-- menu-item-has-children -->
-                                                                        <a href="solutions.html">solutions</a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-756">
-                                                                                        <a href="shop.html">Shop</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-756">
-                                                                                        <a href="single-product.html">Single
-                                                                                                Product</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-754">
-                                                                                        <a
-                                                                                                href="checkout.html">Checkout</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-755">
-                                                                                        <a href="cart.html">Cart</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-753">
-                                                                                        <a href="account.html">My
-                                                                                                account</a>
-                                                                                </li>
-                                                                        </ul> -->
-                                                                </li>
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-317">
-                                                                        <!-- menu-item-has-children -->
-                                                                        <a href="prop-trading.html">Prop Trading</a>
-                                                                </li>
-
-
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-317">
-                                                                        <!-- menu-item-has-children -->
-                                                                        <a href="mt5-servers-for-prop-firms.html">MT5 Servers</a>
-                                                                </li>
-
-
-                                                                <li
-                                                                        class="menu-item menu-item-type-custom menu-item-object-custom  menu-item-317">
-                                                                        <!-- menu-item-has-children -->
-                                                                        <a href="contact.html">Contacts</a>
-                                                                        <!-- <ul class="sub-menu">
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231">
-                                                                                        <a
-                                                                                                href="contact.html">Contact</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-318">
-                                                                                        <a href="contact-2.html">Contact
-                                                                                                2</a>
-                                                                                </li>
-                                                                                <li
-                                                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-456">
-                                                                                        <a href="contact-3.html">Contact
-                                                                                                3</a>
-                                                                                </li>
-                                                                        </ul> -->
-                                                                </li>
-                                                        </ul>
-                                                </div>
-                                        </div>
-                                </div>
-
-                                <div class="close-menu-bg"></div>
-
-                        </div>
-
-
+<div class="main-header js-main-header auto-hide-header ms-nb--transparent ms-nb--white menu-right"
+    id="ms-header">
+    <div class="main-header__layout">
+        <div class="main-header__inner move">
+            <div class="main-header__logo">
+                <div class="logo-dark">
+                    <a href="index.html">
+                        <img src="assets/logo.png" class="dark-logo" style="width: 150px;" alt="FXOps Pro">
+                    </a>
                 </div>
-        </div>
+                <div class="logo-light">
+                    <a href="index.html">
+                        <img src="assets/logo.png" class="dark-logo" style="width: 150px;" alt="FXOps Pro">
+                    </a>
+                </div>
+            </div>
 
+            <div class="main-header__widgets">
+                <div class="main-header--widgets">
+                    <a href="contact.html" class="fx-header-cta">Book Consultation</a>
+                </div>
+
+                <div class="container-menu ms-h_w">
+                    <div class="action-menu">
+                        <div class="menu-text">
+                            <span>Menu</span>
+                        </div>
+                        <div class="menu-lines">
+                            <span class="menu-line"></span>
+                            <span class="menu-line"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ms-menu-wrapper">
+                    <div class="ms-menu">
+                        <div class="ms-menu-container">
+                            <ul id="primary-menu-button" class="navbar-nav" style="width: 220px;">
+                                <li class="menu-title"><a>Navigation</a></li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-14">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-752">
+                                    <a href="solutions.html">Solutions</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-317">
+                                    <a href="about-us.html">About Us</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-317">
+                                    <a href="prop-trading.html">Prop Trading</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-317">
+                                    <a href="mt5-servers-for-prop-firms.html">MT5 Servers</a>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-317">
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="close-menu-bg"></div>
+        </div>
+    </div>
 </div>
 <!--================= Header End Here =================-->
-<!--================= Header One End =================-->
-<!--================= Mobile Menu Start Here =================-->
-
-<!--================= Mobile Menu Start Here =================-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-
-
-
-        
-                                        <div class="header__search-icon ms-h_w">
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
-                                                                stroke="#4F5663" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round">
-                                                        </path>
-                                                        <path d="M21 21L16.65 16.65" stroke="#4F5663" stroke-width="1.5"
-                                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </svg>
-                                        </div>
-
-
-
-                                        <div class="header__search-modal data-scroll-section">
-                                                <button class="header__search--close-btn">
-                                                        <svg class="icon icon--sm" viewBox="0 0 24 24">
-                                                                <title>Close modal window</title>
-                                                                <g fill="none" stroke="currentColor"
-                                                                        stroke-miterlimit="10" stroke-width="2"
-                                                                        stroke-linecap="round" stroke-linejoin="round">
-                                                                        <line x1="3" y1="3" x2="21" y2="21"></line>
-                                                                        <line x1="21" y1="3" x2="3" y2="21"></line>
-                                                                </g>
-                                                        </svg>
-                                                </button>
-                                                <div class="header__search--inner">
-                                                        <form role="search" method="get" class="searchform" action="#">
-                                                                <div class="ms-search-widget">
-                                                                        <input type="search" placeholder="Search..."
-                                                                                value="" name="s" class="search-field"
-                                                                                required>
-                                                                        <button aria-label="Search"
-                                                                                class="ms-search--btn"
-                                                                                type="submit"></button>
-                                                                </div>
-                                                        </form>
-                                                </div>
-                                        </div>
-
-
-
-
-
--->
