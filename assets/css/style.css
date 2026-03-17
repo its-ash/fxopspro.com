@@ -23352,7 +23352,7 @@ body[data-theme=dark] {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99999;
+  z-index: 100001;
   pointer-events: none;
   transform: translate3d(-100px, -100px, 0);
   color: #ffd84d;
@@ -23376,5 +23376,94 @@ body[data-theme=dark] {
   body.fx-currency-cursor-on select,
   body.fx-currency-cursor-on label {
     cursor: none !important;
+  }
+}
+
+/* GDPR Cookie Consent */
+.fx-cookie-consent {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100000;
+  margin: 0 auto;
+  max-width: 920px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 14px;
+  background: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.fx-cookie-consent.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fx-cookie-consent__text {
+  margin: 0;
+  color: #d7d7d7;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.fx-cookie-consent__text a {
+  color: #ffd84d;
+  text-decoration: underline;
+}
+
+.fx-cookie-consent__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+.fx-cookie-consent__btn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fx-cookie-consent__btn--ghost {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #f2f2f2;
+}
+
+.fx-cookie-consent__btn--ghost:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.fx-cookie-consent__btn--primary {
+  background: #ffd84d;
+  color: #111111;
+}
+
+.fx-cookie-consent__btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+@media (max-width: 640px) {
+  .fx-cookie-consent {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px;
+  }
+
+  .fx-cookie-consent__actions {
+    flex-direction: column;
+  }
+
+  .fx-cookie-consent__btn {
+    width: 100%;
   }
 }

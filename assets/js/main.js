@@ -23,6 +23,7 @@
     ms_header_menu();
     ms_menu_default_mobile();
     ms_currency_cursor_auto();
+    ms_cookie_consent();
     
      // Swiper Slider Options
      function swiperActivation($scope){
@@ -1374,6 +1375,73 @@ var filter_price = $('.filter-price');
         footerContainer.style.backgroundPositionY = `${scrolled * parallaxSpeed}px`;
     }
 });
+
+function ms_cookie_consent() {
+  var storageKey = 'fxops_cookie_consent_v1';
+  var consentValue = '';
+
+  try {
+    consentValue = localStorage.getItem(storageKey) || '';
+  } catch (error) {
+    consentValue = '';
+  }
+
+  if (consentValue === 'accepted' || consentValue === 'rejected') {
+    return;
+  }
+
+  var existingBanner = document.querySelector('.fx-cookie-consent');
+  if (existingBanner) {
+    return;
+  }
+
+  var banner = document.createElement('section');
+  banner.className = 'fx-cookie-consent';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-live', 'polite');
+  banner.setAttribute('aria-label', 'Cookie preferences');
+  banner.innerHTML =
+    '<p class="fx-cookie-consent__text">We use cookies to improve site performance and analytics. You can accept all cookies or reject non-essential cookies. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>' +
+    '<div class="fx-cookie-consent__actions">' +
+    '<button type="button" class="fx-cookie-consent__btn " data-cookie-choice="rejected">Reject Non-Essential</button>' +
+    '<button type="button" class="fx-cookie-consent__btn fx-cookie-consent__btn--primary" data-cookie-choice="accepted">Accept All</button>' +
+    '</div>';
+
+  document.body.appendChild(banner);
+  requestAnimationFrame(function () {
+    banner.classList.add('is-visible');
+  });
+
+  banner.addEventListener('click', function (event) {
+    var eventTarget = event.target;
+    if (!(eventTarget instanceof Element)) {
+      return;
+    }
+
+    var choiceButton = eventTarget.closest('[data-cookie-choice]');
+    if (!choiceButton) {
+      return;
+    }
+
+    var choice = choiceButton.getAttribute('data-cookie-choice');
+    if (choice !== 'accepted' && choice !== 'rejected') {
+      return;
+    }
+
+    try {
+      localStorage.setItem(storageKey, choice);
+    } catch (error) {
+      // Skip persistence if storage is unavailable.
+    }
+
+    banner.classList.remove('is-visible');
+    setTimeout(function () {
+      if (banner.parentNode) {
+        banner.parentNode.removeChild(banner);
+      }
+    }, 220);
+  });
+}
 
 })(jQuery);
 
